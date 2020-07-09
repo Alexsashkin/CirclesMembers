@@ -35,8 +35,16 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public int getCircleCount(int countMemberInCircle, TypeCompareEnum typeCompare) {
-        return 0;
+    public synchronized int getCircleCount(int countMemberInCircle, TypeCompareEnum typeCompare) {
+        int countCircles = 0;
+
+        for (Map.Entry<UUID, CircleModel> entry : circleList.entrySet()) {
+            if (entry.getValue().checkCount(countMemberInCircle, typeCompare)) {
+                countCircles++;
+            }
+        }
+
+        return countCircles;
     }
 
     @Override
