@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">CirclesMembers</string>
+
+    <string name="hint_circle_name">Circle Name</string>
+    <string name="hint_member_name">Member Name</string>
+    <string name="hint_latitude">Latitude</string>
+    <string name="hint_longitude">Longitude</string>
+    <string name="hint_distance">Distance</string>
+
+    <string name="add_circle">Add Circle</string>
+    <string name="remove_circle">Remove Circle</string>
+    <string name="add_member">Add Member</string>
+    <string name="remove_member">Remove Member</string>
+    <string name="get_member">Get Member</string>
+
+    <string name="format_id">[%s]</string>
+    <string name="format_coordinate">%.6f</string>
 </resources>
