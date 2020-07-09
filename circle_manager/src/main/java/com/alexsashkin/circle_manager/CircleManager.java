@@ -1,5 +1,6 @@
 package com.alexsashkin.circle_manager;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,13 +20,13 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public List<CircleModel> getCircles() {
-        return null;
+    public synchronized List<CircleModel> getCircles() {
+        return new ArrayList<>(circleList.values());
     }
 
     @Override
-    public CircleModel getCircle(UUID circleId) {
-        return null;
+    public synchronized CircleModel getCircle(UUID circleId) {
+        return circleList.get(circleId);
     }
 
     @Override
