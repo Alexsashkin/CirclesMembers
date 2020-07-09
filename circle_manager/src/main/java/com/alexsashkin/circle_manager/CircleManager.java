@@ -30,8 +30,8 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public void removeCircle(UUID circleId) {
-
+    public synchronized void removeCircle(UUID circleId) {
+        circleList.remove(circleId);
     }
 
     @Override
