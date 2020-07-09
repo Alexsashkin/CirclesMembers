@@ -2,8 +2,10 @@ package com.alexsashkin.circle_manager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public class CircleManager implements ICircleManager {
@@ -63,13 +65,19 @@ public class CircleManager implements ICircleManager {
         }
     }
 
+    // TODO: 09.07.2020 Important!!!
+    // Due to the fact that we use Map for circleList methods,
+    // there will never be duplicates and
+    // getDuplicateCirclesCount, removeDuplicateCircle methods are not needed
+
     @Override
-    public int getDuplicateCirclesCount() {
-        return 0;
+    public synchronized int getDuplicateCirclesCount() {
+        Set<Integer> setCircles = new HashSet<>(circleList.hashCode());
+        return circleList.size() - setCircles.size();
     }
 
     @Override
-    public List<CircleModel> removeDuplicateCircle() {
-        return null;
+    public synchronized List<CircleModel> removeDuplicateCircle() {
+        return getCircles();
     }
 }
