@@ -14,8 +14,8 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public void createCircle(UUID circleId, String name) {
-
+    public synchronized void createCircle(UUID circleId, String name) {
+        circleList.put(circleId, new CircleModel(circleId, name));
     }
 
     @Override
