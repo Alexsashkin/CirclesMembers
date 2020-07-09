@@ -48,8 +48,11 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public void addMember(UUID circleId, MemberModel member) {
-
+    public synchronized void addMember(UUID circleId, MemberModel member) {
+        if (!circleList.containsKey(circleId)) {
+            createCircle(circleId, circleId.toString());
+        }
+        circleList.get(circleId).addMember(member);
     }
 
     @Override
