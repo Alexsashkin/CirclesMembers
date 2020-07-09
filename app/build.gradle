@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation project(':circle_manager')
+
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
