@@ -56,8 +56,11 @@ public class CircleManager implements ICircleManager {
     }
 
     @Override
-    public void removeMember(UUID circleId, UUID memberId) {
-
+    public synchronized void removeMember(UUID circleId, UUID memberId) {
+        int countMembers = circleList.get(circleId).removeMember(memberId);
+        if (countMembers == 0) {
+            circleList.remove(circleId);
+        }
     }
 
     @Override
